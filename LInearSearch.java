@@ -9,7 +9,9 @@ public class LInearSearch {
     }
     public static void main(String[] args) {
         int arr[] ={1,89,15,0,69,100,20,6};
-        int target = 20;
-        System.out.print(linearSearch(arr,target));
+        int target = 0;
+        int res = linearSearch(arr,target);
+        if (res == -1) System.out.print("Not found");
+        else System.out.print("found at "+res);
     }
 }
