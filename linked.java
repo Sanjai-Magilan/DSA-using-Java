@@ -1,43 +1,57 @@
 public class linked {
-    static class Node{
+    static class Node {
         int data;
         Node next;
-        Node(int data){
+
+        Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
 
-    static class LinkedList{
+    static class LinkedList {
         Node head;
 
-        public void add(int data){
+        public void AddAtEnd(int data) {
             Node newNode = new Node(data);
-            if(head == null){
+            if (head == null) {
                 head = newNode;
-            }else {
+            } else {
                 Node temp = head;
-                while(temp.next != null){
+                while (temp.next != null) {
                     temp = temp.next;
                 }
                 temp.next = newNode;
             }
         }
-        public void print(){
+
+        public void AddAtStart(int data) {
+            Node newNode = new Node(data);
+            if (head == null) {
+                head = newNode;
+            } else {
+                newNode.next = head;
+                head = newNode;
+            }
+        }
+
+        public void print() {
             Node temp = head;
-            while(temp != null){
-                System.out.print(temp.data+" ");
+            while (temp != null) {
+                System.out.print(temp.data + " ");
                 temp = temp.next;
             }
         }
     }
+
     public static void main(String[] arg) {
         LinkedList list = new LinkedList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-
+        list.AddAtEnd(1);
+        list.AddAtEnd(2);
+        list.AddAtEnd(3);
+        list.AddAtEnd(4);
+        list.AddAtStart(5);
+        list.AddAtStart(6);
         list.print();
     }
 }
