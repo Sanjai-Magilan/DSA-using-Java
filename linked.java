@@ -25,6 +25,27 @@ public class linked {
             }
         }
 
+        public void inserAtMiddle(int data){
+            if(head == null){
+                head = new Node(data);
+                return;
+            }
+            int count =0;
+            Node temp = head;
+            while(temp!= null){
+                count++;
+                temp = temp.next;
+            }
+            int middle = count/2;
+            Node newNode = new Node(data);
+            temp = head;
+            for(int i=1;i<middle;i++){
+                temp = temp.next;
+            }
+            newNode.next=temp.next;
+            temp.next=newNode;
+        }
+
         public void AddAtStart(int data) {
             Node newNode = new Node(data);
             if (head == null) {
@@ -52,6 +73,7 @@ public class linked {
         list.AddAtEnd(4);
         list.AddAtStart(5);
         list.AddAtStart(6);
+        list.inserAtMiddle(2006);
         list.print();
     }
 }
